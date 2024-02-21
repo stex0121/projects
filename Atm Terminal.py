@@ -76,7 +76,7 @@ if __name__=='__main__':
     
    
     DebitCardnum=''
-    while False:
+    while True:
         try:
             DebitCardnum=(input('please insert youre Credit Card:'))
             DebitMatch=[holder for holder in list_of_Cardholders if holder.cardnum==DebitCardnum]
