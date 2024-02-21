@@ -77,7 +77,7 @@ if __name__=='__main__':
    
     DebitCardnum=''
     while True:
-        try:
+        try: ########## ovde negde je proble#####################################################
             DebitCardnum=(input('please insert youre Credit Card:'))
             DebitMatch=[holder for holder in list_of_Cardholders if holder.cardnum==DebitCardnum]
             if (len(DebitMatch>0)):
@@ -88,7 +88,7 @@ if __name__=='__main__':
 
         except:
             print('Card Number is not recognized,Please inser a valid card.#:')
-
+#############################################################################################
 while True:
     try:
         userPin=int(input('Please enter youre pin')).strip()
