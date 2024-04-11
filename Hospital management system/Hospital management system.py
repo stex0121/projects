@@ -324,16 +324,23 @@ class Hospital:
        self.txtPrescription.insert(END,"Date of Birthay : "+self.patientbirthday.get()+"\n\n")
        self.txtPrescription.insert(END,"Patient adress : "+self.PatientAdress.get()+"\n\n")
     def delete(self):
-     conn = mysql.connector.connect(host='localhost', username='root', password='123456789', database='Mydata')
-     my_cursor=conn.cursor()
-     query="delete from hospital where ref=%s"
-     value=str(self.ref.get())
-     my_cursor.execute(query,value)
-
-     conn.commit()
-     conn.close()
-     self.fetch_data()
-     messagebox.showinfo("Delete","patient has been deleted successfully")
+        try:
+            conn = mysql.connector.connect(host='localhost', username='root', password='123456789', database='Mydata')
+            my_cursor = conn.cursor()
+            
+            query = "DELETE FROM hospital WHERE ref=%s"
+            ref_value = self.ref.get()  # Assuming self.ref.get() returns the reference value to delete
+            
+            my_cursor.execute(query, (ref_value,))  # Pass parameters as a tuple
+            
+            conn.commit()
+            conn.close()
+            
+            self.fetch_data()  # Assuming this method fetches and updates the displayed data
+            messagebox.showinfo("Delete", "Patient has been deleted successfully")
+        
+        except mysql.connector.Error as e:
+            messagebox.showerror("Error", f"Error deleting patient: {e}")
 
     def clear(self):
        self.Nameoftablets.set("")
