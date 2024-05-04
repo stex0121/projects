@@ -4,10 +4,11 @@ from tkinter import filedialog
 
 
 root=Tk()
-root.geometry('500x400')
+root.geometry('500x600')
 root.title('Python notepad')
 root.config(bg='lightblue')
 root.resizable(False,False)
+
 
 def Save_file():
     
@@ -25,12 +26,14 @@ def Open_file():
         content=file.read()
         Entry.insert(INSERT,content)
     
+def exit():
+    root.destroy()
 
 
-
-b1=Button(root,width=8,height=2,bg='#fff',text='save_file',command=Save_file).place(x=250,y=0)
-b2=Button(root,width=8,height=2,bg="#fff",text='Open_file',command=Open_file).place(x=100,y=0)
-Entry=Text(root,width='59',height='21',bg='white',wrap=WORD)
+b1=Button(root,width=8,height=2,bg='#fff',text='Save file',command=Save_file).place(x=200,y=4)
+b2=Button(root,width=8,height=2,bg="#fff",text='Open file',command=Open_file).place(x=100,y=4)
+b3=Button(root,width=8,height=2,bg="#fff",text='Exit',command=exit).place(x=300,y=4)
+Entry=Text(root,width='59',height='30',bg='white',wrap=WORD)
 Entry.place(x=12,y=50)
 
 
