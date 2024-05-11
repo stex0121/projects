@@ -146,7 +146,7 @@ class atm:
                 self.txtreceipt.insert(END, f"{transaction_type}: {transaction_amount}\n")
 
             # Display the current balance
-            self.txtreceipt.insert(END, f"\Trenutni Balans: {self.balance}")
+            self.txtreceipt.insert(END, f"Trenutni Balans: {self.balance}")
           
 
         Main = Frame(root, bd=20, width=784, height=700, relief=RIDGE)
