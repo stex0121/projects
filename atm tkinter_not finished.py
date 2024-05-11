@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 from tkinter import messagebox
+from tkinter import simpledialog
 
 class atm:
     password = 2213
@@ -8,6 +9,7 @@ class atm:
     button1_clicked = False
     button2_clicked = True
     button4_clicked = False
+    
 
     def __init__(self, root):
         self.root = root
@@ -23,8 +25,8 @@ class atm:
             pinNo = self.txtreceipt.get("1.0", "end-1c")
             if int(pinNo) == self.password:
                 self.txtreceipt.delete('1.0', END)
-                self.txtreceipt.insert(END, '\t\t  E Bankomat  ' + '\n\n')
-                self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
+                self.txtreceipt.insert(END, '\t\t  E-banking Bankomat  ' + '\n\n')
+                self.txtreceipt.insert(END, 'Podizanje novca(UNOS)\t Uplata novca(UNOS) ' + '\n\n')
                 self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
                 
                 
@@ -51,6 +53,7 @@ class atm:
                 self.txtreceipt.insert(END, f"Novo stanje na racunu: {new_balance}\n")
                 self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
                 self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
+    
             else:
                 if int(pinNo) != self.password:
                     self.txtreceipt.insert(END, '\t\t Pogresan pin,pokusajte opet...Hvala ' + '\n\n')
@@ -97,21 +100,38 @@ class atm:
                 transaction_type = transaction["type"]
                 transaction_amount = transaction["amount"]
                 self.txtreceipt.insert(END, f"{transaction_type}: {transaction_amount}\n")
+          
+        def change_pin():
+        # Get the new PIN from the user
+            new_pin = simpledialog.askstring("New PIN", "Enter your new PIN:")
+        
+            # If the user cancels or enters an empty PIN, return without changing the PIN
+            if new_pin is None or new_pin == "":
+                return
 
-            # Display the current balance at the end of the mini statement
-            self.txtreceipt.insert(END, f"\n Trenutni bilans stanja racuna: {self.balance}\n")
-            self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
-            self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
+            # Get the confirmation PIN from the user
+            confirm_pin = simpledialog.askstring("Confirm PIN", "Confirm your new PIN:")
+            
+            # If the user cancels or enters an empty PIN, return without changing the PIN
+            if confirm_pin is None or confirm_pin == "":
+                return
 
+            # Check if the new PIN and confirmation PIN match
+            if new_pin == confirm_pin:
+                # Update the PIN
+                atm.password = new_pin
+                print("PIN changed successfully!")
+            else:
+                messagebox.showerror("Error", "PINs do not match. Please try again.")
 
+                def check_confirmation(new_pin, confirm_pin, dialog):
+                    if new_pin == confirm_pin:
+                        self.password = new_pin
+                        print("PIN changed successfully!")
+                        dialog.destroy()  # Close the confirmation dialog
+                    else:
+                        messagebox.showerror("Error", "PINs do not match. Please try again.")
 
-
-        def requestnewpin():
-            self.txtreceipt.delete('1.0', END)
-            self.txtreceipt.insert(END, '\t Pin ce biti zamenjen za 24h  ' + '\n\n')
-            self.txtreceipt.insert(END, '\t\t\tHvala na strpljenju..  ' + '\n\n')
-            self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
-            self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
           
 
         Main = Frame(root, bd=20, width=784, height=700, relief=RIDGE)
@@ -140,7 +160,7 @@ class atm:
         button3.place(x=0, y=200)
         button4 = Button(Top2right, text='<<<<<', font='arial 35 bold', command=loan)
         button4.place(x=0, y=0)
-        button5 = Button(Top2right, text='<<<<<', font='arial 35 bold', command=requestnewpin)
+        button5 = Button(Top2right, text='<<<<<', font='arial 35 bold', command=change_pin)
         button5.place(x=0, y=100)
         button6 = Button(Top2right, text='<<<<<', font='arial 35 bold')
         button6.place(x=0, y=200)
@@ -175,7 +195,8 @@ class atm:
         
         Enter = Button(root, text='ENTER', font='arial 20 bold', relief=SOLID, bg='red', command=input_pin)
         Enter.place(x=450, y=350)
-
+    def authenticate(self, entered_pin):
+        return entered_pin == self.password
 if __name__ == '__main__':
     root = Tk()
     app = atm(root)
