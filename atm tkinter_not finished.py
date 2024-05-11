@@ -131,7 +131,22 @@ class atm:
                         dialog.destroy()  # Close the confirmation dialog
                     else:
                         messagebox.showerror("Error", "PINs do not match. Please try again.")
+        def mini_statement():
+            self.transactions=[]
+            # Clear the text widget
+            self.txtreceipt.delete('1.0', END)
+            
+            # Display the heading for the mini statement
+            self.txtreceipt.insert(END, "Mini Statement\n\n")
+        
+            # Display each transaction in the mini statement
+            for transaction in self.transactions:
+                transaction_type = transaction["type"]
+                transaction_amount = transaction["amount"]
+                self.txtreceipt.insert(END, f"{transaction_type}: {transaction_amount}\n")
 
+            # Display the current balance
+            self.txtreceipt.insert(END, f"\Trenutni Balans: {self.balance}")
           
 
         Main = Frame(root, bd=20, width=784, height=700, relief=RIDGE)
