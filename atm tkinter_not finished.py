@@ -30,18 +30,30 @@ class atm:
                 
             if self.button1_clicked:  # Assuming self.button1_clicked indicates a withdrawal
                 amount = int(pinNo)
-                remaining_balance = self.balance - amount
-                self.balance = remaining_balance  # Update the balance
-                self.txtreceipt.delete('1.0', END)
-                self.txtreceipt.insert(END, f"Trenutni Balanas stanja na racunu  RSD: {remaining_balance}\n")
-                self.txtreceipt.insert(END, 'Hvala vam sto koristite nase usluge.  ' + '\n\n')
+                if amount <= self.balance:  # Check if the withdrawal amount is less than or equal to the current balance
+                    remaining_balance = self.balance - amount
+                    self.balance = remaining_balance  # Update the balance
+                    self.txtreceipt.delete('1.0', END)
+                    self.txtreceipt.insert(END, f"Trenutni Balanas stanja na racunu  RSD: {remaining_balance}\n")
+                    self.txtreceipt.insert(END, 'Hvala vam sto koristite nase usluge.  ' + '\n\n')
+                    self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
+                    self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
+                else:
+                    self.txtreceipt.delete('1.0', END)
+                    self.txtreceipt.insert(END, "Nemate dovoljno sredstava na racunu za ovu transakciju.\n")
                 
+                        
             elif self.button4_clicked:  # Assuming self.button4_clicked indicates a deposit
                 deposit_amount = int(pinNo)
                 new_balance = self.balance + deposit_amount
                 self.balance = new_balance  # Update the balance
+                self.txtreceipt.delete('1.0', END)
                 self.txtreceipt.insert(END, f"Novo stanje na racunu: {new_balance}\n")
-
+                self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
+                self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
+            else:
+                if int(pinNo) != self.password:
+                    self.txtreceipt.insert(END, '\t\t Pogresan pin,pokusajte opet...Hvala ' + '\n\n')
 
         def clear():
             self.txtreceipt.delete('1.0', END)
@@ -88,14 +100,18 @@ class atm:
 
             # Display the current balance at the end of the mini statement
             self.txtreceipt.insert(END, f"\n Trenutni bilans stanja racuna: {self.balance}\n")
+            self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
+            self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
 
 
 
 
         def requestnewpin():
             self.txtreceipt.delete('1.0', END)
-            self.txtreceipt.insert(END, '\t\t\tPin ce biti zamenjen za 24h  ' + '\n\n')
+            self.txtreceipt.insert(END, '\t Pin ce biti zamenjen za 24h  ' + '\n\n')
             self.txtreceipt.insert(END, '\t\t\tHvala na strpljenju..  ' + '\n\n')
+            self.txtreceipt.insert(END, 'Podizanje novca\t\t\t Uplata novca ' + '\n\n')
+            self.txtreceipt.insert(END, ' Izvestaj o racunu/Balans\t\t\t  ' + 'Zahtev za novi pin \n\n')
           
 
         Main = Frame(root, bd=20, width=784, height=700, relief=RIDGE)
