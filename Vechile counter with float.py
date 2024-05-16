@@ -16,6 +16,9 @@ algo = cv2.createBackgroundSubtractorMOG2()
 # Parameters for vehicle detection and counting
 min_area = 1000  # Adjust this threshold according to your needs
 count_line_position = 650
+frame_width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+frame_height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+count_line_position = frame_height - frame_height // 3  # Line position set to bottom one-third of the frame height
 offset = 6
 counter = 0
 crossed_cars = set()
