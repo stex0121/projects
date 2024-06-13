@@ -1,0 +1,135 @@
+body {
+    background-color: greenyellow;
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: aliceblue;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    animation: cardAnimation 1s ease-in-out;
+}
+
+@keyframes cardAnimation {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+h1 {
+    color: black;
+    font-size: 32px;
+    opacity: 1;
+}
+
+.poll {
+    margin: 20px;
+}
+
+h2 {
+    color: black;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+label {
+    display: inline-block;
+    background-color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    color: black;
+}
+
+.option:hover {
+    background-color: pink;
+}
+
+input[type="radio"]:checked + label {
+    background-color: orange;
+    color: #fff;
+}
+
+button {
+    background-color: orangered;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    margin-top: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff055f;
+}
+
+#result{
+    margin-top: 20px;
+    font-size: 20px;
+    color: #ff055f;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.option-result{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.option-text{
+    flex: 1;
+}
+.bar-container{
+    flex: 3;
+    background-color: #f2f2f2;
+    height: 10px;
+    margin-left: 10px;
+    border-radius: 5px;
+    overflow: hidden;
+
+}
+.bar{
+    height: 100%;
+    background-color: #ff055f;
+    width: 0;
+    transition: width 0.5s ease-in-out;
+
+}
+.percentage{
+    flex: 1;
+    margin-left: 10px;
+    font-weight: bold;
+    color: #ff055f;
+
+}
