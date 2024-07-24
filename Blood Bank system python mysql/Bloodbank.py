@@ -134,7 +134,7 @@ if __name__ == "__main__":
             hospital_name = input("Enter A Hospital Name: ")
             patient_name = input("Enter A Patient Name: ")
             patient_age = int(input("Enter a Patient Age: "))
-            patient_blood_type = int(input("""Choose Patient Blood type:
+            patient_blood_type = input("""Choose Patient Blood type:
             1. A+
             2. A-
             3. B+
@@ -142,7 +142,7 @@ if __name__ == "__main__":
             5. O+
             6. O-
             7. AB+
-            8. AB- : """))
+            8. AB- : """)
             BloodBank.patient_details(patient_name,patient_age,patient_blood_type)
     elif options == 4:
         Inventory.show_inventory() 
@@ -152,9 +152,9 @@ if __name__ == "__main__":
         Inventory.add_blood(blood_type,quantity)
         Inventory.show_inventory()
     elif options == 6:
-        blood_type=input("Enter Blood Type to add: ")
+        blood_type=input("Enter Blood Type to deduct: ")
         quantity=int(input("Enter Quantity to add:"))
         Inventory.deduct_blood(blood_type,quantity)
         Inventory.show_inventory() 
     else:
-        print("Enter valid input.")
+        print("Enter valid input from 1 to 6.")
