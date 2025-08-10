@@ -1,1 +1,3 @@
+I will be monthly or in two-three weeks, creating fun blog page about PC Hardware,Games and PC tweaking.
+
 Happy coding...
