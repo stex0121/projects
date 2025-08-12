@@ -1,2 +1,1 @@
-Just little hint sega emulator games on rtx 2060 OC and 180 hz monitor looking like a bright star <3
-Happy coding...
+RTX Genesis Saga contiunes :)
