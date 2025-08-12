@@ -8,3 +8,5 @@ in some moment retro windows 95 games if i can find hexen ,alladin,doom etc etc
 i have to try other emulators ps1 ps2,nes...
 bunch of themes to write
 but for now maybe one or two blog themes about rtx genesis and if i find some ascii unicode art 
+and i will doing always some enchancments to blog site 
+cheers,happy coding :)
