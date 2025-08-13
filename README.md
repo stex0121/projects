@@ -10,3 +10,5 @@ bunch of themes to write
 but for now maybe one or two blog themes about rtx genesis and if i find some ascii unicode art 
 and i will doing always some enchancments to blog site 
 cheers,happy coding :)
+and if i see positive results of my work in near future i will be lunching blog site with same stuffs
+i will in some moment live my email to see if other peoples like gamers ethusiasists,web designers,programmers wants have interests to join on content creating copywriting etc etc
