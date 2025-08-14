@@ -27,4 +27,7 @@ Ray Tracing & AI Features	None	 vs Yes, with dedicated RT and Tensor cores
 Driver Support	Mature but older driver vs stack	Cutting-edge drivers with more frequent updates
 2D/Retro Performance	Very strong for pixel/art-heavy workloads	 vs Strong, but sometimes less bandwidth for textures
 Power Consumption	Higher TDP vs	More efficient
+
+
+
 swaping chain :) (A swap chain is a collection of buffers that are used for displaying frames to the user. Each time an application presents a new frame for display, the first buffer in the swap chain takes the place of the displayed buffer. This process is called swapping or flipping.)
