@@ -18,14 +18,23 @@ This is old vs. new like you’ve never seen before.
 Stay tuned. It’s about to get wild.
 
 The showdown:
+
 Feature	Old 384-bit Beast (e.g., Sapphire Vapor-X)	New 192-bit Tech (e.g., RTX 2060)
+
 Memory Bus Width	384-bit vs	192-bit
+
 Memory Bandwidth	Higher raw bandwidth (due to wider bus)	vs Lower raw bandwidth, but faster GDDR6 memory
+
 Architecture Age	Older GCN-based (e.g., HD 7970 era)	vs Modern Turing architecture
+
 Shader/Compute Power	Less efficient, older shaders	vs Much higher efficiency & advanced features
+
 Ray Tracing & AI Features	None	 vs Yes, with dedicated RT and Tensor cores
+
 Driver Support	Mature but older driver vs stack	Cutting-edge drivers with more frequent updates
+
 2D/Retro Performance	Very strong for pixel/art-heavy workloads	 vs Strong, but sometimes less bandwidth for textures
+
 Power Consumption	Higher TDP vs	More efficient
 
 
