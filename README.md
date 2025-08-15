@@ -2,12 +2,10 @@ i made two more repository
 
 and moved my fan blog pages in reposiroty web design
 
-and i have made fan ascii art repository
+and i have made fast ascii card redear in ascii art fan repository
 
-i have script for ascii card reader in web design section i will these days making ascii tarot card reader
+i m not kind of person who very adores tarot but with right pictures you can generate yourself 
 
-it is css html javascript
 
-it is a sample of reader but it works :)
 
 
