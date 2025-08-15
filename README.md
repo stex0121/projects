@@ -1,3 +1,2 @@
-Enjoy :)
-i will make in next blog ascii art part II jokers cards.
-and ascii part III queens.
+crazy idea but i will be using ascii art like a baner left and side for my blog page
+that will be retro style page with baner who changes colour.i m thinkin you will like it...
